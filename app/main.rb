@@ -2,8 +2,8 @@
 
 require "pathname"
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
-libdir = File.join(File.dirname(ENV["BUNDLE_GEMFILE"]), "app")
-$LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
+appdir = File.join(File.dirname(ENV["BUNDLE_GEMFILE"]), "app")
+$LOAD_PATH.unshift(appdir) unless $LOAD_PATH.include?(appdir)
 
 require "dotenv"
 Dotenv.load

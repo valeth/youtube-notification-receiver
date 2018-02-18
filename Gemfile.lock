@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/valeth/feedjira
+  revision: 26913c02cb0979fed86110d466924188ceb51701
+  branch: youtube-entry-channel-id
+  specs:
+    feedjira (3.0.0.beta1)
+      loofah (>= 2.0)
+      sax-machine (>= 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,6 +19,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    crass (1.0.3)
     declarative (0.0.10)
     declarative-option (0.1.0)
     domain_name (0.5.20170404)
@@ -43,6 +53,9 @@ GEM
     logging (2.2.2)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
+    loofah (2.2.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
     memoist (0.16.0)
     method_source (0.9.0)
     mime-types (3.1)
@@ -75,6 +88,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.1.1)
+    sax-machine (1.3.2)
     signet (0.8.1)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -100,10 +114,10 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 5)
   dotenv
+  feedjira!
   google-api-client (~> 0.11)
   hiredis
   logging (~> 2)
-  nokogiri
   pry
   puma
   redis (~> 3.0)
