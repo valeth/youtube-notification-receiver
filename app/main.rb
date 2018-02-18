@@ -33,6 +33,12 @@ class YoutubeNotificationReceiver < Sinatra::Application
     status Youtube::Feed.unsubscribe(params[:channel_id])
   end
 
+  get "/youtube" do
+    challenge = params["hub.challenge"]
+    status 200
+    body challenge
+  end
+
   post "/youtube" do
     Youtube::Feed.process_item(request.body.read)
   end
