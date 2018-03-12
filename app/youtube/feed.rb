@@ -35,8 +35,6 @@ module Youtube
         { "channel_id" => id, "channel_name" => Youtube::API.channel_title(id) }
       end
 
-      puts response
-
       LOGGER.info do
         "Updating subscription for channel #{response['channel_name']} (#{id})..."
       end
