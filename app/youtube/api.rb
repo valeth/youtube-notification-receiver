@@ -44,5 +44,23 @@ module Youtube
       LOGGER.error { "Failed to fetch YouTube channel name: #{e}" }
       ""
     end
+
+    # @param name [String]
+    # @return [Array<Hash>]
+    def search_channels(name)
+      LOGGER.info { %Q(Searching for channels with query: "#{name}") }
+      results = @client.list_searches("snippet", type: "channel", q: name)
+      results.items.reduce([]) do |acc, result|
+        snippet = result.snippet
+        acc << {
+          title:         snippet.title,
+          thumbnail_url: youtube_thumbnail(snippet.thumbnails),
+          description:   snippet.description
+        }
+      end
+    rescue Google::Apis::Error => e
+      LOGGER.error { "Failed to search YouTube channels: #{e}" }
+      []
+    end
   end
 end
