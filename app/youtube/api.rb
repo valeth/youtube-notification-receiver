@@ -48,11 +48,12 @@ module Youtube
     # @param name [String]
     # @return [Array<Hash>]
     def search_channels(name)
-      LOGGER.info { %Q(Searching for channels with query: "#{name}") }
+      LOGGER.info { %(Searching for channels with query: "#{name}") }
       results = @client.list_searches("snippet", type: "channel", q: name)
       results.items.reduce([]) do |acc, result|
         snippet = result.snippet
         acc << {
+          id:            snippet.channel_id,
           title:         snippet.title,
           thumbnail_url: youtube_thumbnail(snippet.thumbnails),
           description:   snippet.description
