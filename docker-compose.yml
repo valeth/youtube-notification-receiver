@@ -2,6 +2,19 @@ version: "3"
 
 services:
   redis:
-    image: "redis:3"
+    image: "redis:4-alpine"
     ports:
-      - "6379:6379"
+      - "6379"
+
+  yt_nrcv:
+    image: "registry.gitlab.com/valeth/youtube-notification-receiver:latest"
+    build:
+      context: .
+    env_file: ./.env
+    environment:
+      APP_ENV: "development"
+      REDIS_URL: "redis://redis/0"
+    ports:
+      - "9292:9292"
+    depends_on:
+      - "redis"
