@@ -38,5 +38,6 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --deployment --without="development test"
 COPY --chown=app:app ./ ./
 
+EXPOSE 9292
 ENTRYPOINT ["bundle", "exec"]
-CMD ["rackup", "config.ru"]
+CMD ["rackup", "--host", "0.0.0.0", "--port", "9292", "config.ru"]
