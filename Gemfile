@@ -9,7 +9,7 @@ gem "activesupport", "~> 5"
 gem "dotenv"
 gem "logging", "~> 2"
 gem "puma"
-gem "sinatra"
+gem "sinatra", "~> 2.0"
 
 # (Re)Subscription
 gem "rest-client"
